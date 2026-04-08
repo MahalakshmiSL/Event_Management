@@ -14,7 +14,10 @@ const app = express();
 // ── Security & Parsing ────────────────────────────────
 app.use(helmet());
 app.use(cors({
-  origin:      process.env.CLIENT_URL || "http://localhost:5173",
+  origin: [
+    "http://localhost:5173",
+    "https://event-management-sooty-iota.vercel.app"
+  ],
   credentials: true,
 }));
 app.use(express.json());
